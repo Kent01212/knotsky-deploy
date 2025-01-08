@@ -1,0 +1,42 @@
+<!-- チャット検索画面 -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate - チャット作成</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/parts/chat_reset_with_menu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chat_create.css' %}">
+    <link rel="stylesheet" href="{% static 'css/humberger.css' %}">
+</head>
+
+<body>
+
+    {# メイン #}
+    <main>
+        {% include 'humberger.html' %}
+        {# ヘッダー #}
+        <header>
+            <h1>チャット作成</h1>
+        </header>
+
+        {# チャット作成フォーム #}
+        <div id="chat-create-form-container">
+            <form method="POST" id="chat-create-form">
+                {% csrf_token %}
+                <label for="{{ form.name.id_for_label }}">
+                    チャット名
+                </label>
+                <div class="form-section">
+                    {{ form.name }}
+                    <button type="submit">作成</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>

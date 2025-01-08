@@ -1,0 +1,79 @@
+/**
+ * Base styles.
+ */
+
+body {
+
+    /* Sizing */
+    width: 768px;
+}
+
+/*
+  * Chat-create-form container styles.
+  */
+
+#chat-create-form-container {
+
+    /* Display */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* Sizing */
+    width: 100%;
+
+    /* Padding */
+    padding: 16px 0;
+}
+
+#chat-create-form {
+
+    /* Display */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    /* Sizing */
+    width: 100%;
+}
+
+#chat-create-form .form-section {
+
+    /* Display */
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+
+    /* Sizing */
+    width: 100%;
+}
+
+#chat-create-form input,
+#chat-create-form button {
+
+    /* Padding */
+    padding: 8px;
+
+    /* Border */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    /* Fonts */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+#chat-create-form input {
+
+    /* Sizing */
+    width: 100%;
+    height: 100%;
+}
+
+#chat-create-form button {
+
+    /* Sizing */
+    width: 64px;
+    height: 100%;
+}

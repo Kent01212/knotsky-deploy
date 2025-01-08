@@ -1,0 +1,59 @@
+<img src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734059455/icons8-%E3%83%8F%E3%83%B3%E3%83%90%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BCking_ghrc9k.png"
+         width="50" 
+         class="menubutton"
+         id="open-btn">
+
+    <div id="overlay" class="overlay-event">
+        <div class="flex">
+            <!-- menuアイコン -->
+            <img class="menu" src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734066324/menu_eiqbem.png" width="200">
+            <!-- グループアカウント（画像8個、4列2行）-->
+            <div class="menu_container">
+                <!-- アイコン + テキストの組み合わせ -->
+                <div class="menu_item">
+                    <img class="menu_icon" src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734574670/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC_teo16e.png">
+                    <div class="menu_text">ユーザー情報</div>
+                </div>
+                <div class="menu_item">
+                    <img class="menu_icon" src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734325138/bot_qv2gop.png">
+                    <div class="menu_text">Bot</div>
+                </div>
+                <div class="menu_item">
+                    <img class="menu_icon" src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734325108/dm_j743zj.png">
+                    <div class="menu_text">DM</div>
+                </div>
+                <div class="menu_item">
+                    <img class="menu_icon" src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734314777/menuicon_trlfem.png">
+                    <div class="menu_text">チャット</div>
+                </div>
+                <div class="menu_item">
+                    <img class="menu_icon" src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734586549/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97_ukuvtt.png">
+                    <div class="menu_text">グループ</div>
+                </div>
+                <div class="menu_item">
+                    <img class="menu_icon" src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734585527/%E8%A8%AD%E5%AE%9A_l3lpcm.png">
+                    <div class="menu_text">設定</div>
+                </div>
+                <div class="menu_item">
+                    <img class="menu_icon" src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734326282/%E3%83%AD%E3%82%B0%E3%82%A2%E3%82%A6%E3%83%88_2_qenke1.png">
+                    <div class="menu_text">ログアウト</div>
+                </div>
+                <div class="menu_item">
+                    <img class="menu_icon" src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734325186/help_nyuqqe.png">
+                    <div class="menu_text">ヘルプ</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        const overlay = document.getElementById('overlay');
+        const openBtn = document.getElementById('open-btn');
+
+        // ハンバーガーメニューをクリックしたときに開閉
+        openBtn.addEventListener('click', function(event) {
+            overlay.classList.toggle('overlay-on');
+            event.stopPropagation(); // イベントのバブルアップを防ぐ
+        });
+    }, false);
+</script>

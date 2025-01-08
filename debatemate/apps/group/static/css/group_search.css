@@ -1,0 +1,141 @@
+/* 全ての要素に適用 */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+body,
+html {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #F5F5F5;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+main>* {
+    width: 100%;
+}
+
+main>header,
+main>footer {
+    background-color: #fff;
+    text-align: center;
+    padding: 16px 0;
+}
+
+main>header {
+    color: #40E0D0;
+}
+
+main>footer {
+    color: #007BA7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 検索フォーム */
+#group-search-form-container {
+    max-width: 1024px;
+    margin: 32px;
+}
+
+#group-search-form {
+    display: flex;
+    gap: 8px;
+}
+
+#group-search-form input,
+#group-search-form button {
+    height: 100%;
+    border-radius: 5px;
+}
+
+#group-search-form input {
+    flex: 1;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    padding: 8px;
+}
+
+#group-search-form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #40E0D0;
+    color: black;
+    font-size: 16px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+#group-search-form button img {
+    width: 32px;
+    height: 32px;
+    margin-left: 8px;
+}
+
+#group-search-form button img.default {
+    display: inline;
+}
+
+#group-search-form button img.hover {
+    display: none;
+}
+
+#group-search-form button:hover {
+    background-color: #007BA7;
+    color: white;
+}
+
+#group-search-form button:hover img.default {
+    display: none;
+}
+
+#group-search-form button:hover img.hover {
+    display: inline;
+}
+
+/* グループカード */
+#group-search-card-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 128px);
+    gap: 8px;
+    max-width: 1024px;
+}
+
+.group-card {
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 123, 167, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.group-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 123, 167, 0.2);
+}
+
+#group-search-card-container img {
+    width: 128px;
+    height: 128px;
+}

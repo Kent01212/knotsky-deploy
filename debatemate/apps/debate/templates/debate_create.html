@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate - ディベート作成</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/create.css' %}">
+</head>
+
+<body>
+    {# メイン #}
+    <main>
+
+        {# ヘッダー #}
+        <header>
+            <h1>ディベートを作成</h1>
+        </header>
+
+        {# ディベート作成フォーム #}
+            <div class="login-container" >
+                <form method="POST" id="debate-create-form">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                    <button type="submit">作成</button>
+                </form>
+            </div>
+
+    </main>
+</body>
+
+</html>

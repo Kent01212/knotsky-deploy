@@ -1,0 +1,48 @@
+<!-- グループに招待する画面 -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate - グループに招待</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/parts/group_reset_with_menu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/group_bot_invite_search.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    {% include 'parts/group_menu.html' with group=group %}
+
+    <main>
+        <header>
+            <h3>{{ group.name }} > ボット招待</h3>
+            <h1>ボットを招待</h1>
+        </header>
+
+        <div id="group-bot-invite-search-form-container">
+            <form method="POST" id="group-bot-invite-search-form">
+                {% csrf_token %}
+                {{ form.query }}
+                <button type="submit">招待</button>
+            </form>
+        </div>
+
+        <div id="group-bot-invite-search-card-container">
+            {% for bot in bots %}
+            <a href="{% url 'group.(id).bot.invite.(id)' group.id bot.id %}">
+                <div class="group-bot-card">
+                    <p>{{ bot.name }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <footer>
+            <p>copyright &copy; 2024 KNOTSKY. All Rights Reserved</p>
+        </footer>
+    </main>
+</body>
+
+</html>

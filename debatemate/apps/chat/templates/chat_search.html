@@ -1,0 +1,61 @@
+<!-- チャット検索画面 -->
+<!DOCTYPE html>
+<html lang="ja">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate - チャット一覧</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/chat_search.css' %}">
+    <link rel="stylesheet" href="{% static 'css/humberger.css' %}">
+</head>
+
+
+<body>
+    {% include 'humberger.html' %}
+    {# ヘッダー #}
+    <header>
+        <h1>チャット検索</h1>
+    </header>
+
+    {# メイン #}
+    <main>
+
+        <!-- グループ検索フォーム -->
+        <div id="chat-search-form-container">
+            <form method="POST" id="chat-search-form">
+                {% csrf_token %}
+                {{ form.query }}
+                <button type="submit">検索</button>
+            </form>
+        </div>
+
+        <!-- グループリスト -->
+        <div id="chat-search-card-container">
+            <a href="{% url 'chat.create' %}">
+                <div class="chat-card">
+                    <h2>+</h2>
+                </div>
+            </a>
+            {% for chat in chats %}
+            <a href="{% url 'chat.(id)' chat.id %}">
+                <div class="chat-card">
+                    <p>{{ chat.name }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+    </main>
+
+    {# フッター #}
+    <footer>
+        copyright &copy; DebateMate 2024 | KNOTSKY all rights reserved
+    </footer>
+
+</body>
+
+
+</html>

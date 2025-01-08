@@ -1,0 +1,15 @@
+# 環境変数
+.env
+
+# Pythonのコードキャッシュ
+__pycache__/
+*.pyc
+*.pyo
+
+# Pythonの仮想環境関連
+.venv/
+ENV/
+
+# Git関連のファイル
+.gitignore
+.git/

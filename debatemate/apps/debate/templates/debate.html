@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>{% block title %}Debate App{% endblock %}</title>
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'css/debate.css' %}">
+   <link rel="stylesheet" href="{% static 'css/humberger.css' %}">
+   {% block extra_css %}{% endblock %}
+   <script src="{% static 'js/voice_recognition.js' %}" defer></script>
+   <script src="{% static 'js/voice_call.js' %}" defer></script>
+   <script src="{% static 'js/debate_chat.js' %}" defer></script>
+   <script src="{% static 'js/video_chat.js' %}" defer></script>
+</head>
+<body data-debate-id="{{ debate.id }}" data-current-user="{{ request.user.name }}">
+   <div class="container">
+       <aside class="sidebar">
+           <div class="sidebar-header">
+               {% include 'humberger.html' %}
+               <h1 class="sidebar-title">Debate App</h1>
+           </div>
+
+           <div class="sidebar-content">
+               <div class="user-list">
+                   {% for user in users %}
+                   <div class="user-item">
+                       <div class="user-icon">ユーザー {{ user.id }} icon</div>
+                   </div>
+                   {% endfor %}
+               </div>
+               
+               <div class="video-grid" id="videoGrid">
+                   <div class="local-video-container">
+                       <video id="localVideo" autoplay playsinline muted></video>
+                       <div class="video-overlay">
+                           <span class="video-name">You</span>
+                       </div>
+                   </div>
+                   <div id="remoteVideos" class="remote-videos"></div>
+               </div>
+           </div>
+
+           <div class="controls">
+               <div class="control-buttons">
+                   <button class="control-btn" id="screenShareBtn">💻</button>
+                   <button class="control-btn" id="videoBtn">📹</button>
+                   <button class="control-btn" id="expandBtn">↗</button>
+               </div>
+               <div class="user-controls">
+                   <img src="{{ user.avatar }}" alt="user" class="user-avatar">
+                   <span class="user-name">{{ user.name }}</span>
+                   <button id="micButton" class="mic-btn" onclick="toggleRecording()">🎤</button>
+                   <button id="soundBtn" class="sound-btn">🔊</button>
+                   <button class="settings-btn">⚙️</button>
+               </div>
+           </div>
+       </aside>
+
+       <main class="chat-area">
+           <div class="chat-messages" id="chat-messages">
+               {% for message in messages %}
+               <div class="message {% if message.author.account == request.user %}message-own{% endif %}">
+                   <div class="message-header">
+                       <span class="message-author">{{ message.author.name }}</span>
+                       <span class="message-time">{{ message.created_at|date:"Y-m-d H:i" }}</span>
+                   </div>
+                   <div class="message-content">
+                       {{ message.content }}
+                   </div>
+               </div>
+               {% endfor %}
+           </div>
+           <div class="message-input-area">
+               <form method="post" class="message-form" id="messageForm">
+                   {% csrf_token %}
+                   <input type="text" name="message" id="messageInput" placeholder="メッセージを入力" class="message-input" required>
+                   <button type="submit" class="send-button">送信</button>
+               </form>
+           </div>
+       </main>
+   </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+/*acountフォルダのcss*/
+body {
+    background-color: #F5F5F5;
+    display: flex;
+    justify-content: center;
+    /*子要素を横方向に中央揃え*/
+    align-items: center;
+    /*子要素を縦方向に中央揃え*/
+    /* height: 100vh; */
+    /*ビューポートの大きさを100%にするが、コメントアウト中*/
+    margin: 0;
+    /*余白0*/
+}
+
+.login-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    /*要素を角丸にする*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /*影をつける*/
+    text-align: center;
+    width: 600px;
+    height: auto;
+    margin: 46px 36px;
+}
+
+/* ロゴマークに適用 */
+#rogo {
+    margin-bottom: 1rem;
+}
+
+.app_name {
+    color: #333;
+    font-size: 32px;
+    font-weight: bold;
+    /*太字にしている*/
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    /*要素を縦方向に配置、上から下に垂直に*/
+}
+
+input {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    /*外枠を設定*/
+    border-radius: 4px;
+    /*角丸*/
+}
+
+button {
+    background-color: #40E0D0;
+    color: black;
+    border: none;
+    padding: 0.5rem;
+    margin: 5px;
+    border-radius: 4px; /*角丸*/
+    cursor: pointer;  /*カーソルのポインターを手の形に変化させる*/
+    transition: background-color 0.3s; /*背景色の色遷移時のアニメーション、0.3秒で行う*/
+    font-weight: bold; /* 太字に */
+}
+
+button:hover {
+    background-color: #007BA7;
+    color: white;
+}
+
+.link_button {
+    background-color: #40E0D0;
+    color: black;
+    border: none;
+    padding: 0.5rem;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    /*カーソルのポインターを手の形に変化させる*/
+    transition: background-color 0.5s;
+    /*背景色の色遷移時のアニメーション、0.5秒で行う*/
+    text-decoration: none;
+    /*リンクの下線をなくす*/
+    font-weight: bold;
+    /* 太字に */
+}
+
+.link_button:hover {
+    background-color: #007BA7;
+    color: white;
+}
+
+.signup-link {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.password-link {
+    margin-top: 10px;
+}
+
+.password-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.password-link a:hover {
+    text-decoration: underline;
+}
+
+.information_text {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

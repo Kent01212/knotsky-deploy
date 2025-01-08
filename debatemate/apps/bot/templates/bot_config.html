@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ bot.name }} - 編集</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bot_config.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>{{ bot.name }} - 編集</h1>
+        <form method="post" enctype="multipart/form-data">  <!-- enctypeを追加 -->
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name">ボット名</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="id_icon">アイコン</label>
+                {{ form.icon }}
+                {% if bot.icon %}
+                    <p>現在のアイコン:</p>
+                    <img src="{{ bot.icon.url }}" alt="ボットアイコン" style="max-width: 100px; max-height: 100px;">
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="id_description">説明</label>
+                {{ form.description }}
+            </div>
+            <div class="form-group">
+                <button type="submit">保存</button>
+                <a href="{% url 'bot_search' %}" class="cancel-button">キャンセル</a>
+            </div>
+        </form>
+        <form method="post" action="{% url 'bot_delete' bot.id %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="delete-button">削除</button>
+        </form>
+    </div>
+</body>
+</html>

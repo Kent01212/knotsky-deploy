@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/parts/group_reset_with_menu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/group.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        #group-form-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #group-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #group-icon {
+            width: 256px;
+            height: 256px;
+        }
+
+        #group-icon img {
+            width: 100%;
+            height: 100%;
+
+            border: none;
+            border-radius: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'parts/group_menu.html' with group=group %}
+
+    <main>
+        <header>
+            <h3>{{ group.name }} > 詳細 </h3>
+            <h1>{{ group.name }}</h1>
+        </header>
+
+        <div id="group-form-container">
+            <div id="group-icon">
+                <img src="https://placehold.jp/128x128.png" alt="アイコン">
+            </div>
+            <form method="POST" id="group-form">
+                {% csrf_token %}
+                <div class="form-section">
+                    {{ form.icon }}
+                </div>
+                <div class="form-section">
+                    <label for="{{ form.title.id_for_label }}">
+                        グループ名
+                    </label>
+                    {{ form.title }}
+                </div>
+                <div class="form-section">
+                    <label for="{{ form.description.id_for_label }}">
+                        説明
+                    </label>
+                    {{ form.description }}
+                </div>
+                <button type="submit">保存</button>
+            </form>
+        </div>
+
+        <footer>
+            <p>copyright &copy; 2023 DebateMate Inc. All Rights Reserved</p>
+        </footer>
+    </main>
+</body>
+
+</html>

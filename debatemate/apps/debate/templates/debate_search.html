@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate - ディベート検索</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/debate_search.css' %}">
+    <link rel="stylesheet" href="{% static 'css/humberger.css' %}">
+</head>
+
+<body>
+
+    {# ヘッダー #}
+    <header>
+        <h1>ディベート検索 </h1>
+    </header>
+
+    {# メイン #}
+    <main>
+        {% include 'humberger.html' %}
+        <!-- ディベート検索フォーム -->
+        <div id="debate-search-form-container">
+            <form method="POST" id="debate-search-form">
+                {% csrf_token %}
+                {{ form.query }}
+                <button type="submit">
+                    検索
+                    <img src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734401105/%E6%A4%9C%E7%B4%A2_cwilxn.png"
+                        alt="通常時の画像" class="search-icon default">
+                    <img src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734401105/%E6%A4%9C%E7%B4%A2%E3%83%9B%E3%83%90%E3%83%BC_hcryq4.png"
+                        alt="ホバー時の画像" class="search-icon hover">
+                </button>
+            </form>
+        </div>
+
+        <!-- ディベートリスト -->
+        <div id="debate-search-card-container">
+            <a href="{% url 'debate.create' %}">
+                <div class="debate-card">
+                    <h2>+</h2>
+                </div>
+            </a>
+            {% for debate in debates %}
+            <a href="{% url 'debate.(id)' debate.id %}">
+                <div class="debate-card">
+                    <p>{{ debate.title }}</p>
+                    <img src="https://placehold.jp/256x256.png" alt="">
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+    </main>
+
+    {# フッター #}
+    <footer>
+        copyright &copy; DebateMate 2025 | KNOTSKY all rights reserved
+    </footer>
+
+</body>
+
+</html>

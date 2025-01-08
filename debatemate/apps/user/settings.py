@@ -1,0 +1,18 @@
+# Setting for debatemate.account
+
+# Account OTP Settings
+
+# One Time Password Token Length
+USER_OTP_LENGTH = 8
+USER_OTP_CHARSET = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+# One Time Password Token Hex Length
+USER_OTP_HASH_BIT_LENGTH = 512
+USER_OTP_HASH_HEX_LENGTH = USER_OTP_HASH_BIT_LENGTH//4
+
+# One Time Password Token Salt Length
+USER_OTP_SALT_BIT_LENGTH = 512
+USER_OTP_SALT_HEX_LENGTH = USER_OTP_SALT_BIT_LENGTH//4
+
+SIGNUP_OTP_URL = '/user/signup/otp/'
+SIGNUP_OTP_REDIRECT_URL = '/group/'

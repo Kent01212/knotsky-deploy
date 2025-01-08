@@ -1,0 +1,39 @@
+<!-- グループ検索画面 -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate - グループ作成</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/parts/group_reset_with_menu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/group_create.css' %}">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>グループを作成</h1>
+        </header>
+
+        <div id="group-create-form-container">
+            <form method="POST" id="group-create-form">
+                {% csrf_token %}
+                <label for="{{ form.name.id_for_label }}">
+                    グループ名
+                </label>
+                <div class="form-section">
+                    {{ form.name }}
+                    <button type="submit">作成</button>
+                </div>
+            </form>
+        </div>
+
+        <footer>
+            <p>copyright &copy; 2024 KNOTSKY. All Rights Reserved</p>
+        </footer>
+    </main>
+</body>
+
+</html>

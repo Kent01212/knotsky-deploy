@@ -1,0 +1,42 @@
+<!-- グループ内のアカウント検索画面 -->
+<!-- グループ検索画面 -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate - {{ user.name }}を{{ group.name }}に招待</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/parts/group_reset_with_menu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/group_user_invite.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    {% include 'parts/group_menu.html' with group=group %}
+
+    <main>
+        <header>
+            <h1>{{ user.name }}を{{ group.name }}に招待</h1>
+        </header>
+
+        <div id="user-info-container">
+            <div id="user-info">
+                <img src="https://via.placeholder.jp/256x256.png" alt="user">
+                <h2>{{ user.name }}</h2>
+                <h2>{{ user.email }}</h2>
+                <form method="POST" id="user-invite-form">
+                    {% csrf_token %}
+                    <button type="submit">{{ group.name }}に招待</button>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <p>copyright &copy; 2023 DebateMate Inc. All Rights Reserved</p>
+        </footer>
+    </main>
+</body>
+
+</html>

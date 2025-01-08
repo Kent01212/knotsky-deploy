@@ -1,0 +1,30 @@
+<!-- リカバリ画面(3) -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate - パスワード再設定</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/user.css' %}">
+</head>
+<body>
+    <!-- 枠 -->
+    <div class="login-container">
+        <!-- ロゴマーク -->
+        <!-- Cloudinaryより画像URLを取得 -->
+        <img src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1733187481/%E3%83%AD%E3%82%B4%E3%83%9E%E3%83%BC%E3%82%AF_bmmwqk.png" width="100" height="100" id="rogo">
+        <!-- アプリ名->ロゴに文字あるからいらないかも -->
+        <!-- <div class="app_name">DebateMate</div> -->
+        <!-- 入力促し文 -->
+        <div class="information_text">新しいパスワードを入力してください</div>
+        <!-- 再設定フォーム -->
+        <form action="" method="POST">
+            <input type="password" name="password" placeholder="新パスワード" required>
+            <input type="password" name="confirm_password" placeholder="新パスワード（確認）" required>
+            <!-- 処理が完了すれば、ログイン画面に直行 -->
+            <!--  ../user_signin.htmlへ遷移-->
+            <a class="link_button" href="../user_signin.html">設定</a>
+    </div>
+</body>
+</html>

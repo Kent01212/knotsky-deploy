@@ -1,0 +1,33 @@
+<!-- リカバリ画面(2) -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate - ワンタイムパスワード</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/user.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <!-- ロゴマーク -->
+        <!-- Cloudinaryより画像URLを取得 -->
+        <img src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1733187481/%E3%83%AD%E3%82%B4%E3%83%9E%E3%83%BC%E3%82%AF_bmmwqk.png" width="100" height="100" id="rogo">
+        <!-- アプリ名->ロゴに文字あるからいらないかも -->
+        <!-- <div class="app_name">DebateMate</div> -->
+        <!-- 入力促しメッセージ -->
+         <div class="information_text">送信されたメールに記載されたワンタイムパスワードを入力して下さい</div>
+        <!-- ワンタイムパスワードフォーム -->
+        <form action="" method="POST">
+            <input type="text" name="otp" placeholder="ワンタイムパスワード" maxlength="8">
+            <!-- ログイン後の画面へ遷移 -->
+            <a class="link_button" href="user_recover_3.html">送信</a>
+        </form>
+        <!-- ワンタイムパスワード再発行 -->
+         <!-- どこかに遷移するわけではないため、aタグで仮表記していません -->
+        <div class="link_button">
+            ワンタイムパスワード再発行
+        </div>
+    </div>
+</body>
+</html>

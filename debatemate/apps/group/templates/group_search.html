@@ -1,0 +1,56 @@
+<!-- グループ検索画面 -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate - グループ検索</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/group_search.css' %}">
+    <link rel="stylesheet" href="{% static 'css/humberger.css' %}">
+</head>
+
+<body>
+    {% include 'humberger.html' %}
+
+    <main>
+        <header>
+            <h1>グループを検索</h1>
+        </header>
+
+        <div id="group-search-form-container">
+            <form method="POST" id="group-search-form">
+                {% csrf_token %}
+                {{ form.query }}
+                <button type="submit">
+                    検索
+                    <img src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734401105/%E6%A4%9C%E7%B4%A2_cwilxn.png" alt="通常時の画像" class="search-icon default">
+                    <img src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734401105/%E6%A4%9C%E7%B4%A2%E3%83%9B%E3%83%90%E3%83%BC_hcryq4.png" alt="ホバー時の画像" class="search-icon hover">
+                </button>
+            </form>
+        </div>
+
+        <div id="group-search-card-container">
+            <a href="{% url 'group.create' %}">
+                <div class="group-card">
+                    <h2>+</h2>
+                </div>
+            </a>
+            {% for group in groups %}
+            <a href="{% url 'group.(id)' group.id %}">
+                <div class="group-card">
+                    <img src="https://placehold.jp/128x128.png" alt="アイコン">
+                    <h4>{{ group.name }}</h4>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <footer>
+            copyright &copy; DebateMate 2025 | KNOTSKY all rights reserved
+        </footer>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+body{
+    background-color: #F5F5F5;
+}
+.header_text {
+    background-color: #ffffff; /* ヘッダーの背景色を白に設定 */
+    color: #40E0D0; /* ヘッダーのテキスト色をターコイズに設定 */
+    text-align: center; /* ヘッダー内のテキストを中央揃えに */
+    padding: 20px 0; /* ヘッダーの上下に20pxの内側余白を設定 */
+    width: 100%; /* ヘッダーの幅を100%（全幅）に設定 */
+}
+
+.footer_text {
+    background-color: #ffffff; /* フッターの背景色を白に設定 */
+    color: #007BA7; /* フッターのテキスト色を青緑色に設定 */
+    text-align: center; /* フッター内のテキストを中央揃えに */
+    padding: 20px 0; /* フッターの上下に20pxの内側余白を設定 */
+    width: 100%; /* フッターの幅を100%（全幅）に設定 */
+}
+
+.button_1 {
+    background-color: #40E0D0; /* ボタンの背景色をターコイズに設定 */
+    color: black; /* ボタンのテキスト色を黒に設定 */
+    border: none; /* ボタンの境界線を削除 */
+    padding: 0.5rem; /* ボタン内に0.5remの内側余白を設定 */
+    margin: 5px; /* ボタンの外側に5pxの余白を設定 */
+    border-radius: 5px; /* ボタンの角を5px丸くする */
+    cursor: pointer; /* カーソルをポインター（手の形）に変更 */
+    transition: background-color 0.3s; /* 背景色の変更を0.3秒かけてアニメーション化 */
+    font-weight: bold; /* フォントを太字に設定 */
+}
+
+.button_1:hover {
+    background-color: #007BA7; /* ホバー時のボタンの背景色を青緑色に変更 */
+    color: white; /* ホバー時のボタンのテキスト色を白に変更 */
+}
+
+.button_2 {
+    padding: 8px; /* ボタン内に8pxの内側余白を設定 */
+    border: none; /* ボタンの境界線を削除 */
+    border-radius: 5px; /* ボタンの角を5px丸くする */
+    font-size: 14px; /* フォントサイズを14pxに設定 */
+    font-weight: bold; /* フォントを太字に設定 */
+    cursor: pointer; /* カーソルをポインター（手の形）に変更 */
+    transition: background-color 0.3s, color 0.3s; /* 背景色とテキスト色の変更を0.3秒かけてアニメーション化 */
+    margin: 5px 0; /* ボタンの上下に5pxの外側余白を設定 */
+    background-color: #F0F8FF; /* ボタンの背景色を薄い青に設定 */
+    color: black; /* ボタンのテキスト色を黒に設定 */
+    border: 2px solid #40E0D0; /* ボタンの境界線を2pxのターコイズの実線に設定 */
+}
+
+.button_2:hover {
+    background-color: #D6E9FF; /* ホバー時のボタンの背景色をより濃い青に変更 */
+    color: black; /* ホバー時のボタンのテキスト色を黒に保持 */
+    border: 2px solid #007bff; /* ホバー時のボタンの境界線を2pxの青の実線に変更 */
+}
+
+.button_search {
+    background-color: #40E0D0; /* ボタンの背景色をターコイズに設定 */
+    color: black; /* テキストの色を黒に設定 */
+    border: none; /* ボーダーを削除 */
+    padding: 0 15px; /* 左右のパディングを15pxに設定 */
+    border-radius: 5px; /* 角を5px丸くする */
+    cursor: pointer; /* マウスオーバー時にポインターに変更 */
+    transition: background-color 0.3s; /* 背景色の変更を0.3秒かけてアニメーション */
+    font-size: 16px; /* フォントサイズを16pxに設定 */
+    display: flex; /* フレックスボックスを使用 */
+    align-items: center; /* 垂直方向に中央揃え */
+    justify-content: center; /* 水平方向に中央揃え */
+    height: 40px; /* ボタンの高さを40pxに設定（入力ボックスと同じ高さ） */
+}
+
+.button_search:hover {
+    background-color: #007BA7; /* ホバー時の背景色を濃い青に変更 */
+    color: white; /* ホバー時のテキスト色を白に変更 */
+}
+
+.button_search .search-icon {
+    width: 20px; /* 検索アイコンの幅を20pxに設定 */
+    height: 20px; /* 検索アイコンの高さを20pxに設定 */
+    margin-left: 5px; /* アイコンの左側に5pxのマージンを追加 */
+}
+
+.button_search .search-icon.hover {
+    display: none; /* ホバー用のアイコンを初期状態で非表示に */
+}
+
+.button_search:hover .search-icon.default {
+    display: none; /* ホバー時にデフォルトのアイコンを非表示に */
+}
+
+.button_search:hover .search-icon.hover {
+    display: inline-block; /* ホバー時にホバー用のアイコンを表示 */
+}
+
+.link {
+    /* ディスプレイ設定 */
+    display: flex;                /* フレックスボックスとして表示 */
+    flex-direction: column;       /* 子要素を縦方向に配置 */
+    align-items: center;          /* 子要素を水平方向の中央に配置 */
+    justify-content: center;      /* 子要素を垂直方向の中央に配置 */
+    gap: 8px;                     /* 子要素間に8pxの間隔を設定 */
+
+    /* マージン設定 */
+    margin-top: 16px;             /* 上部に16pxのマージンを設定 */
+    margin-bottom: 16px;          /* 下部に16pxのマージンを設定 */
+}
+
+.input-container {
+    position: relative; /* 相対位置を設定 */
+    margin-top: 25px;/* 上部に25pxのマージンを設定 */
+    margin-bottom: 25px;/* 下部に25pxのマージンを設定 */
+  }
+  
+  .input {
+    font-size: 16px;/* フォントサイズを16pxに設定 */
+    padding: 10px;/* 内側の余白を10pxに設定 */
+    display: block;/* ブロックレベル要素として表示 */
+    width: 300px;/* 幅を300pxに設定 */
+    border-radius: 4px;/* 角を少し丸くする */
+    border: 2px solid #ccc; /* ここを変更 */
+    border-radius: 4px;
+}
+
+  
+.input:focus {
+    outline: none;
+    border-color: #000; /* フォーカス時のボーダー色を変更 */
+}
+
+  label {
+    color: #999;
+
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 10px;
+    top: 10px;
+    transition: 0.2s ease all;
+    
+  }
+  
+  .input:focus ~ label, .input:not(:placeholder-shown) ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #000000;
+  }
+  
+
+.user_card {
+    background-color: white;  /* 背景色を白に設定 */
+    border-radius: 10px;  /* 角を10ピクセルの半径で丸くする */
+    padding: 20px;  /* 内側に20ピクセルの余白を追加 */
+    margin: 20px; /* 外側に20ピクセルのマージンを追加 */
+    text-align: center;  /* テキストを中央揃えにする */
+    box-shadow: 0 4px 6px rgba(0, 123, 167, 0.1);  /* 薄い青色の影を追加 */
+    transition: transform 0.3s, box-shadow 0.3s;  /* 変形と影の変化に0.3秒のアニメーションを適用 */
+}
+
+.user_card:hover {
+    transform: translateY(-5px);  /* ホバー時に要素を5ピクセル上に移動 */
+    box-shadow: 0 6px 8px rgba(0, 123, 167, 0.2);  /* ホバー時に影を濃くし、大きくする */
+}
+
+.user_card h2 {
+    font-size: 24px;  /* h2要素のフォントサイズを24ピクセルに設定 */
+    color: #40E0D0;  /* h2要素の文字色をターコイズに設定 */
+}
+
+.user_card p {
+    margin-top: 10px;  /* p要素の上部に10ピクセルのマージンを追加 */
+    color: #333;  /* p要素の文字色を濃いグレーに設定 */
+}
+
+.group_add {
+    background-color: white;  /* 背景色を白に設定 */
+    border-radius: 10px;  /* 角を10ピクセルの半径で丸くする */
+    padding: 20px;  /* 内側に20ピクセルの余白を追加 */
+    margin: 20px; /* 外側に20ピクセルのマージンを追加 */
+    text-align: center;  /* テキストを中央揃えにする */
+    box-shadow: 0 4px 6px rgba(0, 123, 167, 0.1);  /* 薄い青色の影を追加 */
+    transition: transform 0.3s, box-shadow 0.3s;  /* 変形と影の変化に0.3秒のアニメーションを適用 */
+}
+
+.group_add:hover {
+    transform: translateY(-5px);  /* ホバー時に要素を5ピクセル上に移動 */
+    box-shadow: 0 6px 8px rgba(0, 123, 167, 0.2);  /* ホバー時に影を濃くし、大きくする */
+}
+
+.group_add h2 {
+    font-size: 24px;  /* h2要素のフォントサイズを24ピクセルに設定 */
+    color: #40E0D0;  /* h2要素の文字色をターコイズに設定 */
+}
+
+.group_add p {
+    margin-top: 10px;  /* p要素の上部に10ピクセルのマージンを追加 */
+    color: #333;  /* p要素の文字色を濃いグレーに設定 */
+}
+
+.group_card {
+    background-color: white;  /* 背景色を白に設定 */
+    border-radius: 10px;  /* 角を10ピクセルの半径で丸くする */
+    padding: 20px;  /* 内側に20ピクセルの余白を追加 */
+    margin: 20px; /* 外側に20ピクセルのマージンを追加 */
+    text-align: center;  /* テキストを中央揃えにする */
+    box-shadow: 0 4px 6px rgba(0, 123, 167, 0.1);  /* 薄い青色の影を追加 */
+    transition: transform 0.3s, box-shadow 0.3s;  /* 変形と影の変化に0.3秒のアニメーションを適用 */
+}
+
+.group_card:hover {
+    transform: translateY(-5px);  /* ホバー時に要素を5ピクセル上に移動 */
+    box-shadow: 0 6px 8px rgba(0, 123, 167, 0.2);  /* ホバー時に影を濃くし、大きくする */
+}
+
+.group_card h2 {
+    font-size: 24px;  /* h2要素のフォントサイズを24ピクセルに設定 */
+    color: #40E0D0;  /* h2要素の文字色をターコイズに設定 */
+}
+
+.group_card p {
+    margin-top: 10px;  /* p要素の上部に10ピクセルのマージンを追加 */
+    color: #333;  /* p要素の文字色を濃いグレーに設定 */
+}
+
+.textarea {
+    display: flex; /* フレックスボックスとして表示 */
+    flex-direction: column; /* フレックスアイテムを縦方向（上から下）に配置 */
+    gap: 8px; /* フレックスアイテム間に8ピクセルの間隔を設定 */
+    font-weight: bold; /* フォントの太さを太字に設定 */
+    width: 50%; /* 幅を100%に設定 */
+    min-height: 150px; /* 最小の高さを150ピクセルに設定 */
+    padding: 10px; /* 内側の余白を10ピクセルに設定 */
+    box-sizing: border-box; /* パディングを幅と高さに含める */
+    border: 2px solid #ccc; /* 枠線を2ピクセルの実線に設定 */
+    border-radius: 4px; /* 角を少し丸くする */
+    font-size: 16px; /* フォントサイズを16ピクセルに設定 */
+}

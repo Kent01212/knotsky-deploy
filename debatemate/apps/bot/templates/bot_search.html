@@ -1,0 +1,60 @@
+<!-- ボット検索画面 -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate - ボット一覧</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bot_search.css' %}">
+    <link rel="stylesheet" href="{% static 'css/humberger.css' %}">
+</head>
+
+<body>
+
+
+    {% include 'humberger.html' %}
+    {# ヘッダー #}
+    <header>
+        <h1>Bot検索</h1>
+    </header>
+
+    {# メイン #}
+    <main>
+
+        <!-- ボット検索フォーム -->
+        <div id="bot-search-form-container">
+            <form method="POST" id="bot-search-form">
+                {% csrf_token %}
+                {{ form.query }}
+                <button type="submit">検索</button>
+            </form>
+        </div>
+
+        <!-- ボットリスト -->
+        <div id="bot-search-card-container">
+            <a href="{% url 'bot.create' %}">
+                <div class="bot-card">
+                    <h2>+</h2>
+                </div>
+            </a>
+            {% for bot in bots %}
+            <a href="{% url 'bot.(id)' bot.id %}">
+                <div class="bot-card">
+                    <p>{{ bot.name }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+    </main>
+
+    {# フッター #}
+    <footer>
+        ...
+    </footer>
+
+</body>
+
+</html>

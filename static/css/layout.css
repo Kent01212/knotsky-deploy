@@ -1,0 +1,264 @@
+/* ボディ全体のスタイル */
+body {
+    margin: 0;  /* 外側の余白をなくす */
+    padding: 0;  /* 内側の余白をなくす */
+    display: flex;  /* フレックスボックスレイアウトを使用 */
+}
+
+/* ユーザープロファイルセクションのスタイル */
+#user-profile {
+    display: flex;  /* フレックスボックスレイアウトを使用 */
+    flex-direction: column;  /* 子要素を縦方向に配置 */
+    align-items: center;  /* 子要素を中央揃え */
+    justify-content: center;  /* 子要素を垂直方向中央揃え */
+    bottom: 0;  /* 下端に配置 */
+    left: 0;  /* 左端に配置 */
+    width: 200px;  /* 幅を200pxに設定 */
+    padding: 10px;  /* 内側の余白を10px設定 */
+}
+
+/* ユーザープロファイル内のボタンのスタイル */
+#user-profile button {
+    width: 60%;  /* 幅を親要素の60%に設定 */
+    margin: 5px auto;  /* 上下に5px、左右に自動マージンを設定 */
+}
+
+/* ユーザーアイコンのスタイル */
+.user-icon {
+    width: 75px;  /* 幅を75pxに設定 */
+    height: 75px;  /* 高さを75pxに設定 */
+    border-radius: 50%;  /* 角を丸くして円形に */
+    overflow: hidden;  /* はみ出た部分を隠す */
+    margin-bottom: 10px;  /* 下側に10pxのマージンを設定 */
+}
+
+/* ユーザーアイコン内の画像のスタイル */
+.user-icon img {
+    width: 100%;  /* 幅を親要素いっぱいに */
+    height: 100%;  /* 高さを親要素いっぱいに */
+    object-fit: cover;  /* アスペクト比を保ちながら領域を埋める */
+}
+
+/* ボタンの基本スタイル */
+button {
+    background-color: #40E0D0;  /* 背景色を設定 */
+    color: black;  /* 文字色を黒に設定 */
+    padding: 0.5rem;  /* 内側の余白を設定 */
+    border-radius: 4px;  /* 角を丸くする */
+    cursor: pointer;  /* カーソルをポインターに */
+    transition: background-color 0.3s;  /* 背景色の変化をアニメーション化 */
+    font-weight: bold;  /* フォントを太字に */
+}
+
+/* ボタンのホバー時のスタイル */
+button:hover {
+    background-color: #007BA7;  /* ホバー時の背景色を変更 */
+    color: white;  /* ホバー時の文字色を白に変更 */
+}
+
+/* リスト項目のスタイル */
+li {
+    list-style: none;  /* リストマーカーを非表示 */
+    text-align: center;  /* テキストを中央揃え */
+}
+
+/* 横並び要素のスタイル */
+.yoko {
+    display: flex;  /* フレックスボックスレイアウトを使用 */
+}
+
+/* ラッパー要素のグリッドレイアウト */
+.wrapper {
+    display: grid;  /* グリッドレイアウトを使用 */
+    grid-auto-columns: 1fr;  /* 列の幅を均等に */
+    grid-auto-flow: column;  /* 要素を列方向に配置 */
+    gap: 1rem;  /* 要素間の隙間を設定 */
+    width: fit-content;  /* 幅をコンテンツに合わせる */
+}
+
+/* ラッパー内のボタンのスタイル */
+.wrapper button {
+    width: 100%;  /* 幅を親要素いっぱいに */
+}
+
+/* 入力フィールドのスタイル */
+input {
+    margin-bottom: 1rem;  /* 下側のマージンを設定 */
+    padding: 0.5rem;  /* 内側の余白を設定 */
+    border: 1px solid #ddd;  /* ボーダーを設定 */
+    border-radius: 4px;  /* 角を丸くする */
+    width: 600px;  /* 幅を600pxに設定 */
+}
+
+/* メニューのスタイル */
+#menu {
+    width: 200px;  /* 幅を200pxに設定 */
+    background-color: #f0f0f0;  /* 背景色を設定 */
+    padding: 20px;  /* 内側の余白を設定 */
+    height: 100vh;  /* 高さをビューポートの高さいっぱいに */
+    position: fixed;  /* 固定位置に配置 */
+    left: 0;  /* 左端に配置 */
+}
+
+/* グループトグルチェックボックスの非表示 */
+#group-toggle {
+    display: none;  /* 非表示にする */
+}
+
+/* グループトグルラベルのスタイル */
+.group-toggle {
+    position: fixed;  /* 固定位置に配置 */
+    top: 0px;  /* トップ */
+    right: 0px;  /* 右端に配置 */
+    z-index: 1;  /* 重なり順を設定 */
+    cursor: pointer;  /* カーソルをポインターに */
+    font-size: 18px;  /* フォントサイズを設定 */
+    color: black;  /* 文字色を黒に */
+    background-color: #f0f0f0;  /* 背景色を設定 */
+    border-radius: 4px;  /* 角を丸くする */
+    transition: top 0.3s ease-in-out;  /* 位置の変化をアニメーション化 */
+}
+
+/* グループトグルがチェックされた時のラベルの位置 */
+#group-toggle:checked + .group-toggle {
+    top: 130px;  /* 上から130pxの位置に */
+}
+
+/* グループリストのスタイル */
+#group-list {
+    width: 100%;  /* 幅を計算して設定 */
+    background-color: #f0f0f0;  /* 背景色を設定 */
+    padding: 20px;  /* 内側の余白を設定 */
+    position: fixed;  /* 固定位置に配置 */
+    top: -100%;  /* 上に隠れるように */
+    left: 0px;  /* 左から240pxの位置に */
+    transition: top 0.3s ease-in-out;  /* 位置の変化をアニメーション化 */
+    z-index: 0;  /* 重なり順を設定 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);  /* 影を追加 */
+    overflow-x: auto;  /* 横方向のスクロールを有効に */
+    white-space: nowrap;  /* テキストを折り返さない */
+}
+
+/* グループリスト内のulのスタイル */
+#group-list ul {
+    list-style-type: none;  /* リストマーカーを非表示 */
+    padding: 0;  /* パディングをなくす */
+    margin: 0;  /* マージンをなくす */
+    display: inline-flex;  /* インラインフレックスボックスを使用 */
+    justify-content: flex-start;  /* 子要素を左揃え */
+    flex-wrap: nowrap;  /* 折り返しを禁止 */
+}
+
+/* グループリスト内のliのスタイル */
+#group-list li {
+    margin: 5px 10px 5px 0;  /* マージンを設定 */
+    flex-shrink: 0;  /* 縮小を禁止 */
+}
+
+/* グループリストのスクロールバーのスタイル */
+#group-list::-webkit-scrollbar {
+    height: 8px;  /* スクロールバーの高さを設定 */
+}
+
+#group-list::-webkit-scrollbar-track {
+    background: #f1f1f1;  /* スクロールバーのトラックの背景色を設定 */
+}
+
+#group-list::-webkit-scrollbar-thumb {
+    background: #888;  /* スクロールバーのつまみの色を設定 */
+    border-radius: 4px;  /* つまみの角を丸くする */
+}
+
+#group-list::-webkit-scrollbar-thumb:hover {
+    background: #555;  /* ホバー時のつまみの色を設定 */
+}
+
+/* グループトグルがチェックされた時のグループリストの位置 */
+#group-toggle:checked + .group-toggle + #group-list {
+    top: 0;  /* 上端に配置 */
+}
+
+/* グループアイコンのスタイル */
+.group-icon img {
+    width: 70px;  /* 幅を70pxに設定 */
+    height: 70px;  /* 高さを70pxに設定 */
+    border: 2px solid #000000;  /* 黒い枠線を追加 */
+    margin-right: 10px;  /* 右側のマージンを設定 */
+    border-radius: 20%;  /* 角を丸くする */
+}
+
+/* ヘルプアイコンのスタイル */
+.help-icon {
+    position: absolute;  /* 絶対位置に配置 */
+    top: 10px;  /* 上から10pxの位置に */
+    right: 10px;  /* 右から10pxの位置に */
+    font-size: 24px;  /* フォントサイズを設定 */
+    cursor: pointer;  /* カーソルをポインターに */
+    text-align: center;  /* テキストを中央揃え */
+    width: 30px;  /* 幅を30pxに設定 */
+    height: 30px;  /* 高さを30pxに設定 */
+    border: 2px solid #000000;  /* 黒い枠線を追加 */
+    border-radius: 50%;  /* 円形にする */
+    background-color: white;  /* 背景色を白に */
+    text-decoration: none;  /* テキストの下線を削除 */
+}
+
+/* ユーザーリストのスタイル */
+#user-list {
+    max-height: 300px;  /* 最大高さを300pxに設定 */
+    overflow-y: auto;  /* 縦方向のスクロールを有効に */
+    overflow-x: hidden;  /* 横方向のスクロールを無効に */
+    margin-bottom: 20px;  /* 下側のマージンを設定 */
+    border: 1px solid #ddd;  /* ボーダーを設定 */
+    border-radius: 4px;  /* 角を丸くする */
+    background-color: #f9f9f9;  /* 背景色を設定 */
+    padding: 10px;  /* 内側の余白を設定 */
+    height: 120px;  /* 高さを120pxに設定 */
+    width: 180px;  /* 幅を180pxに設定 */
+}
+
+/* ユーザーリスト内のliのスタイル */
+#user-list li {
+    display: flex;  /* フレックスボックスレイアウトを使用 */
+    align-items: center;  /* 子要素を垂直方向中央揃え */
+    margin-bottom: 10px;  /* 下側のマージンを設定 */
+    padding: 5px;  /* 内側の余白を設定 */
+    border-bottom: 1px solid #eee;  /* 下線を追加 */
+    word-break: break-all;  /* 長い単語を折り返す */
+}
+
+/* ユーザーリスト内のulのスタイル */
+#user-list ul {
+    list-style-type: none;  /* リストマーカーを非表示 */
+    padding: 0;  /* パディングをなくす */
+    margin: 0;  /* マージンをなくす */
+}
+
+/* ユーザーリスト内の最後のliのスタイル */
+#user-list li:last-child {
+    border-bottom: none;  /* 最後の項目の下線を削除 */
+}
+
+/* ユーザーリスト内の画像のスタイル */
+#user-list img {
+    width: 30px;  /* 幅を30pxに設定 */
+    height: 30px;  /* 高さを30pxに設定 */
+    border-radius: 50%;  /* 円形にする */
+    margin-right: 10px;  /* 右側のマージンを設定 */
+}
+
+/* ユーザー検索入力フィールドのスタイル */
+#user-search-input {
+    width: calc(100% - 10px);  /* 幅を計算して設定 */
+    padding: 5px;  /* 内側の余白を設定 */
+    border: 1px solid #ddd;  /* ボーダーを設定 */
+    border-radius: 4px;  /* 角を丸くする */
+}
+
+.menubutton{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    margin: 5px;
+    z-index: 100;
+    }

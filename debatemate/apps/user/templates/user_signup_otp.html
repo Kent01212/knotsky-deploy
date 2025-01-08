@@ -1,0 +1,53 @@
+<!-- サインアップ画面(1) -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate - 新規登録</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/user_signup_otp.css' %}">
+    <style>
+        body {
+            background-color: #ccc;
+            background-image: url('{% static "images/background.png" %}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        {# ヘッダー #}
+        <header>
+            <img id="logo" src="{% static 'images/logo.png' %}">
+            <h2>新規登録</h2>
+        </header>
+
+        {# メッセージ #}
+        <div id="signup-otp-message">
+            <p><strong>{{ user.email }}</strong></p>
+            <p>宛に8桁のワンタイムパスワードを送信しました</p>
+            <p>5分以内に入力してください</p>
+        </div>
+
+        {# フォーム #}
+        <div id="signup-otp-form-container">
+            <form method="POST" id="signup-otp-form">
+                {% csrf_token %}
+                <div class="form-section">
+                    <label for="{{ form.token.id_for_label }}">
+                        ワンタイムパスワード
+                    </label>
+                    {{ form.token }}
+                </div>
+                <button type="submit">送信</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

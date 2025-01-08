@@ -1,0 +1,492 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.login-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px; /*要素を角丸にする*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /*影をつける*/
+    text-align: center;
+    width: 600px;
+    height: auto;
+    margin: 46px 50px;
+}
+
+#chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#chat-input {
+    display: flex;
+}
+#message-input {
+    flex: 1;
+    padding: 10px;
+}
+#send-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#user-profile {
+    align-items: center;
+    margin-top: auto;
+    padding-top: 20px;
+    position: fixed;
+    bottom: 0;
+}
+
+.user-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.user-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+button {
+    background-color: #40E0D0;
+    color: black;
+    border: none;
+    padding: 0.5rem;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: top;
+    transition: background-color 0.3s;
+    font-weight: bold; /* 太字に */
+}
+
+button:hover {
+    background-color: #007BA7;
+    color: white;
+}
+
+li{
+    list-style: none;
+    text-align: center;
+}
+
+.yoko{
+    display: flex;
+}
+
+.wrapper {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    gap: 1rem;
+    width: fit-content;
+  }
+
+  .wrapper button {
+    width: 100%;
+  }
+
+  .group_container {
+    display: flex;
+    /* justify-content: center; 子要素を横方向に中央揃え */
+    align-items: center; /*子要素を縦方向に中央揃え*/
+    margin: 0; /*余白0*/
+    width: 1000px;
+}
+
+.create_form {
+    display: flex;
+    flex-direction: column; /*要素を縦方向に配置、上から下に垂直に*/
+}
+
+.link_button {
+    background-color: #40E0D0;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer; /*カーソルのポインターを手の形に変化させる*/
+    transition: background-color 0.5s; /*背景色の色遷移時のアニメーション、0.5秒で行う*/
+    text-decoration:none; /*リンクの下線をなくす*/
+    text-align: center;
+}
+
+.link_button:hover {
+    background-color: #007BA7;
+}
+
+input {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd; /*外枠を設定*/
+    border-radius: 4px; /*角丸*/
+    width: 600px;
+}
+
+#menu-toggle {
+    display: none;
+}
+/* メニュー部分の表示切替をする部分 */
+.menu-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    cursor: pointer;
+    font-size: 24px;
+}
+/* メニュー部分 */
+#menu {
+    width: 200px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    transition: left 0.3s ease-in-out;
+}
+/* 非表示に変更した場合にメニュー部分が動く */
+#menu-toggle:checked + .menu-toggle + #menu {
+    left: -200px;
+}
+/* 表示の場合のチャット部分 */
+#chat-container {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 100vh;
+    margin-left: 200px;
+    transition: margin-left 0.3s ease-in-out;
+
+}
+/* 非表示に変更した場合にチャット部分が動く */
+#menu-toggle:checked ~ #chat-container {
+    margin-left: 0;
+}
+
+/* メニューが表示ときの表示 */
+#group_container {
+    flex: 1;
+    align-items: center;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 100vh;
+    margin-left: 200px;
+    margin-top: 150px;
+    transition: margin-left 0.3s ease-in-out;
+}
+/* メニューが表示の時 */
+/* 非表示に変更した場合にチャット部分が動く */
+#menu-toggle:checked ~ #group_container {
+    margin-left: 0;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.debate-container {
+    flex-direction: row;
+    display: flex; /* Flexboxを使用 */
+    flex-wrap: wrap; /* 要素がコンテナの幅を超えた場合に折り返す */
+}
+
+.debate {
+    border: 2px solid #000; /* 枠線 */
+    border-radius: 30px;
+    background-color: #40E0D0;
+    width: 30%; /* 幅を30%に設定 */
+    height: 200px; /* 高さを設定 */
+    margin: 10px; /* マージンを追加 */
+    overflow: hidden;     /* はみ出す部分を隠す */
+    text-decoration:none; /*リンクの下線をなくす*/
+    color: #000;
+}
+
+.debate h2{
+    text-align: center;
+
+}
+.debate p{
+    text-align: center;
+
+}
+
+#debate-list {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 100vh;
+    margin-left: 200px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+#menu-toggle:checked ~ #debate-list {
+    margin-left: 0;
+}
+
+
+.plus{
+    position: fixed; /* 画面に固定 */
+    bottom: 20px;    /* 下から20px */
+    right: 20px;     /* 右から20px */
+    z-index: 10000;  /* 他の要素より前面に表示 */
+}
+
+
+.btn,
+a.btn,
+button.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+a.btn--orange {
+    color: #fff;
+    background-color: #eb6100;
+  }
+  
+  a.btn--orange:hover {
+    color: #fff;
+    background: #f56500;
+  }
+  
+  a.btn--shadow {
+    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  a.btn--circle {
+    border-radius: 50%;
+    line-height: 100px;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+  }
+
+
+  .group-search-container {
+    flex-direction: row;
+    display: flex; /* Flexboxを使用 */
+    flex-wrap: wrap; /* 要素がコンテナの幅を超えた場合に折り返す */
+}
+
+.group-search {
+    border: 2px solid #000; /* 枠線 */
+    border-radius: 30px;
+    background-color: #40E0D0;
+    width: 30%; /* 幅を30%に設定 */
+    height: 200px; /* 高さを設定 */
+    margin: 10px; /* マージンを追加 */
+    overflow: hidden;     /* はみ出す部分を隠す */
+    text-decoration:none; /*リンクの下線をなくす*/
+    color: #000;
+}
+
+.group-search h2{
+    text-align: center;
+
+}
+.group-search p{
+    text-align: center;
+
+}
+
+#group-search-list {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 100vh;
+    margin-left: 200px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+#menu-toggle:checked ~ #group-list {
+    margin-left: 0;
+}
+
+.group-search-name {
+    display: flex;
+    align-items: center; /* 垂直方向に中央揃え */
+}
+
+.group-search-icon img {
+    width: 70px; /* アイコンの幅 */
+    height: 70px; /* アイコンの高さ */
+    border-radius: 50%; /* 丸形にする */
+    margin-right: 10px; /* テキストとの間隔 */
+}
+ .group-search_input_information {
+    text-align: left;
+    
+  }
+
+
+  /* グループトグルのチェックボックスを非表示にする */
+#group-toggle {
+    display: none;
+}
+
+
+
+/* グループトグルボタンのスタイリング */
+.group-toggle {
+    position: fixed; /* 固定位置 */
+    top: 140px;
+    right: 0px;
+    z-index: 2; /* 重なり順を指定 */
+    cursor: pointer;
+    font-size: 18px;
+    color: black;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    transition: top 0.3s ease-in-out; /* スムーズな移動効果 */
+}
+#group-toggle:checked + .group-toggle {
+    top: 0px;
+}  
+
+
+/* グループリストのスタイリング */
+#group-list {
+    width: calc(100% - 240px); /* メニューの幅を考慮 */
+    background-color: #f0f0f0;
+    padding: 20px;
+    position: fixed; /* 固定位置 */
+    top: 0;
+    left: 240px; /* メニューの幅と同じ */
+    transition: top 0.3s ease-in-out; /* スムーズな移動効果 */
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow-x: auto; /* 横スクロールを有効にする */
+    white-space: nowrap; /* 折り返しを防ぐ */
+}
+
+/* グループリスト内のul要素のスタイリング */
+#group-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex; /* インラインフレックスに変更 */
+    justify-content: flex-start; /* 左揃えに変更 */
+    flex-wrap: nowrap; /* 折り返しを防ぐ */
+}
+
+/* グループリスト内のli要素のスタイリング */
+#group-list li {
+    margin: 5px 10px 5px 0; /* 右側のマージンを追加 */
+    flex-shrink: 0; /* アイテムの縮小を防ぐ */
+}
+
+/* スクロールバーのスタイリング（Webkit系ブラウザ用） */
+#group-list::-webkit-scrollbar {
+    height: 8px;
+}
+
+#group-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+#group-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+#group-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+/* グループトグルがチェックされた時のグループリストの位置 */
+#group-toggle:checked + .group-toggle + #group-list {
+    top: -100%; /* 画面外に移動 */
+}
+
+
+
+
+.group-icon img {
+    width: 70px; /* アイコンの幅 */
+    height: 70px; /* アイコンの高さ */
+    border: 2px solid #000000;
+    margin-right: 10px; /* テキストとの間隔 */
+    border-radius: 20%; /* 丸形にする */
+}
+
+.search-container {
+    flex: 1;
+    align-items: center;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    /* height: 100vh; */
+    margin-left: 200px;
+    margin-top: 10px;
+    transition: margin-left 0.3s ease-in-out;
+  }
+  
+  #menu-toggle:checked ~ .search-container {
+    margin-left: 0;
+    align-items: center;
+}
+  form {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  #search-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+
+  .tate{
+    flex-flow: column;
+    
+  }
+
+  .search-button{
+    width: 100px;
+    writing-mode: horizontal-tb;
+
+  }

@@ -1,0 +1,258 @@
+/* Global Styles
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans JP", sans-serif;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 512px;
+    height: 100%;
+    padding: 0 96px;
+}
+
+main>header,
+main>footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+#logo {
+    width: 128px;
+    height: 128px;
+}
+
+#signup-form-container,
+#signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+}
+
+#signup-form {
+    font-weight: bold;
+}
+
+#signup-form .form-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+#signup-form .form-section label {
+    font-size: 14px;
+}
+
+#signup-form .form-section input,
+#signup-form button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 5px 0;
+}
+
+#signup-form button {
+    background-color: #40E0D0;
+    color: black;
+}
+
+#signup-form button:hover {
+    background-color: #007BA7;
+    color: white;
+} */
+
+*,
+*::before,
+*::after {
+
+    /* Margin */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans JP", sans-serif;
+    user-select: none;
+}
+
+body {
+
+    /* Display */
+    display: flex;
+    justify-content: center;
+
+    /* Background-color */
+    background-color: #ccc;
+
+    min-height: 100vh;
+}
+
+main {
+
+    /* Display */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* Sizing */
+    width: 768px;
+    min-height: 100vh;
+
+    /* Background-color */
+    background-color: #fff;
+
+    /* Padding */
+    padding-left: 128px;
+    padding-right: 128px;
+}
+
+main>header,
+main>footer {
+
+    /* Display */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo {
+
+    /* Sizing */
+    width: 192px;
+    height: 192px;
+}
+
+#logo img {
+
+    /* Sizing */
+    width: 100%;
+    height: 100%;
+}
+
+#title {
+
+    padding: 16px;
+}
+
+#singup-form-container {
+
+    /* Display */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* Sizing */
+    width: 100%;
+}
+
+#signup-form {
+
+    /* Display */
+    display: flex;
+    flex-direction: column;
+
+    /* Sizing */
+    width: 100%;
+}
+
+#signup-form div.form-section {
+
+    /* Display */
+    display: flex;
+    flex-direction: column;
+
+    /* Sizing */
+    width: 100%;
+
+    /* Margin */
+    margin-bottom: 24px;
+}
+
+#signup-form div.form-section label {
+
+    /* Sizing */
+    width: 100%;
+    
+}
+
+#signup-form div.form-section input {
+
+    /* Sizing */
+    width: 100%;
+
+    /* Padding */
+    padding: 8px;
+
+    /* Margin */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#signup-form button,
+        .signup-button {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            margin: 5px 0;
+        }
+
+        #signup-form button {
+            background-color: #40E0D0;
+            color: black;
+        }
+
+        #signup-form button:hover {
+            background-color: #007BA7;
+            color: white;
+        }
+        #links {
+
+            /* Display */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        
+            /* Margin */
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+
+

@@ -1,0 +1,65 @@
+<!-- サインイン画面(1) -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate - ログイン</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/user_signin.css' %}">
+    <style>
+        body {
+            background-color: #ccc;
+            background-image: url('{% static "images/background.png" %}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!-- 枠 -->
+    <main>
+        {# ヘッダー #}
+        <header>
+            <div id="logo">
+                <img src="{% static 'images/logo.png' %}" alt="">
+            </div>
+            <div id="title">
+                <h2>ログイン</h2>
+            </div>
+        </header>
+
+        {# フォーム #}
+        <div id="signin-form-container">
+            <form method="POST" id="signin-form">
+                {% csrf_token %}
+                <div class="form-section">
+                    <label for="{{ form.name.id_for_label }}">
+                        ユーザー名
+                    </label>
+                    {{ form.name }}
+                </div>
+                <div class="form-section">
+                    <label for="{{ form.password.id_for_label }}">
+                        パスワード
+                    </label>
+                    {{ form.password }}
+                </div>
+                <!-- ログインボタン -->
+                <button type="submit">ログイン</button>
+            </form>
+            <a href="{% url 'user.signup' %}">
+                <button type="button" class="signup-button">新規登録</button>
+            </a>
+            <div id="links">
+                <p>パスワードを忘れた場合は<a href="">こちら</a></p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

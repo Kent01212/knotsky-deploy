@@ -1,0 +1,67 @@
+<!-- サインアップ画面(1) -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate - 新規登録</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/user_signup.css' %}">
+    <style>
+        body {
+            background-color: #ccc;
+            background-image: url('{% static "images/background.png" %}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 枠 -->
+    <main>
+        {# ヘッダー #}
+        <header>
+            <img id="logo" src="{% static 'images/logo.png' %}">
+            <h2>新規登録</h2>
+        </header>
+
+        {# フォーム #}
+        <div id="signup-form-container">
+            <form method="POST" id="signup-form">
+                {% csrf_token %}
+                <div class="form-section">
+                    <label for="{{ form.name.id_for_label }}">
+                        ユーザー名
+                    </label>
+                    {{ form.name }}
+                </div>
+                <div class="form-section">
+                    <label for="{{ form.email.id_for_label }}">
+                        メールアドレス
+                    </label>
+                    {{ form.email }}
+                </div>
+                <div class="form-section">
+                    <label for="{{ form.password.id_for_label }}">
+                        パスワード
+                    </label>
+                    {{ form.password }}
+                </div>
+                <div class="form-section">
+                    <label for="{{ form.password_confirmation.id_for_label }}">
+                        パスワード(確認用)
+                    </label>
+                    {{ form.password_confirmation }}
+                </div>
+                <button type="submit">登録</button>
+            </form>
+            <div id="links">
+                <p>既に登録済みの方<a href="{% url 'user.signin' %}">こちら</a></p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

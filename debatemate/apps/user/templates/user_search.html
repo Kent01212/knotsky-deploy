@@ -1,0 +1,61 @@
+<!-- ユーザー検索画面 -->
+ <!-- グループ検索画面 -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate - ユーザー検索</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/user_search.css' %}">
+    <link rel="stylesheet" href="{% static 'css/humberger.css' %}">
+    
+</head>
+
+<body>
+
+    {# ヘッダー #}
+    <header>
+        <h1>ユーザー検索</h1>
+    </header>
+
+    {# メイン #}
+    <main>
+        {% include 'humberger.html' %}
+        <!-- ユーザー検索フォーム -->
+        <div id="user-search-form-container">
+            <form method="POST" id="user-search-form">
+                {% csrf_token %}
+                {{ form.query }}
+                <button type="submit">
+                    検索
+                    <img src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734401105/%E6%A4%9C%E7%B4%A2_cwilxn.png" alt="通常時の画像" class="search-icon default">
+                    <img src="https://res.cloudinary.com/dq9ypnzdn/image/upload/v1734401105/%E6%A4%9C%E7%B4%A2%E3%83%9B%E3%83%90%E3%83%BC_hcryq4.png" alt="ホバー時の画像" class="search-icon hover">
+                </button>
+            </form>
+        </div>
+
+        <!-- ユーザーリスト -->
+        <div id="user-search-card-container">
+            
+            {% for user in users %}
+            <a href="{% url 'user.(id)' user.id %}">
+                <div class="user-card">
+                    <p>{{ user.name }}</p>
+                    <p>{{ user.description }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+    </main>
+
+    {# フッター #}
+    <footer>
+        copyright &copy; DebateMate 2025 | KNOTSKY all rights reserved
+    </footer>
+
+</body>
+
+</html>

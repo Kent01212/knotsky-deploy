@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebateMate</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+    <link rel="stylesheet" href="{% static 'css/humberger.css' %}">
+</head>
+
+<body>
+    {% include 'humberger.html' %}
+    <nav id="chat-nav">
+        <div class="chat-nav-title">
+            <h2>DebateMate</h2>
+        </div>
+        {% for chat2 in chats %}
+        <a href="{% url 'chat.(id)' chat2.id %}">
+            {% if chat2.id == chat.id %}
+            <div class="chat-nav-selected">
+                <h5>{{ chat2.name }}</h5>
+            </div>
+            {% else %}
+            <div class="chat-nav-selector">
+                <h5>{{ chat2.name }}</h5>
+            </div>
+            {% endif %}
+        </a>
+        {% endfor %}
+    </nav>
+
+    <main>
+        {# チャット #}
+        <div id="chat-card-container">
+            {% for message in messages %}
+            <div class="chat-card">
+                <div class="author">
+                    <img src="https://via.placeholder.com/32" alt="">
+                    <p>{{ message.author.user.name }}</p>
+                </div>
+                <div class="content">
+                    <p>{{ message.created_at }}</p>
+                    <p>{{ message.content }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {# チャット送信フォーム #}
+        <div id="chat-form-container">
+            <form method="POST" id="chat-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div id="chat-media">
+                    <label for="file-upload" class="file-upload-label">
+                        ファイル選択
+                    </label>
+                    <input type="file" name="file" id="file-upload" accept="image/*, .pdf, .docx" />
+                </div>
+                <div id="image-preview"></div> <!-- プレビューエリア -->
+                {{ form.message }}
+                <button type="submit">送信</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // ファイル選択時に画像をプレビュー
+        document.getElementById('file-upload').addEventListener('change', function (event) {
+            const previewContainer = document.getElementById('image-preview');
+            previewContainer.innerHTML = ''; // プレビューエリアを初期化
+
+            const file = event.target.files[0];
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'preview-image';
+                    previewContainer.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+*,
+*::before,
+*::after {
+
+    /* Margin */
+    margin: 0;
+
+    /* Padding */
+    padding: 0;
+
+    /* Box-sizing */
+    box-sizing: border-box;
+
+    /* Font */
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+body,
+main,
+html {
+
+    /* Sizing */
+    width: 100%;
+    height: 100vh;
+}
+
+main,
+html {
+
+    /* Display */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body {
+
+    /* Display */
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+
+    /* Sizing */
+    padding: 0 64px;
+}
+
+main>header {
+
+    /* Sizing */
+    width: 100%;
+
+    /* Display */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    /* Padding */
+    padding: 32px 0;
+}
+
+main>footer {
+
+    /* Sizing */
+    width: 100%;
+
+    /* Display */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    /* Padding */
+    padding: 32px 0;
+}

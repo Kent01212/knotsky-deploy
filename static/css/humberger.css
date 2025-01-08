@@ -1,0 +1,68 @@
+    /* デフォルトの余白をリセット */
+
+    #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 100vw;
+        height: 100vh;
+        visibility: hidden;
+        opacity: 0;
+        background: rgba(32, 32, 32, 0.7);
+        transition: all 0.5s ease-out;
+    }
+
+    #overlay.overlay-on {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .flex {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menubutton {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        margin: 5px;
+        z-index: 100;
+        cursor: pointer;
+    }
+
+    .menu {
+        margin-top: -10px;
+    }
+
+    /* CSS Gridで画像を配置 */
+    .menu_container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 横に4列 */
+        gap: 20px; /* 各画像間の隙間 */
+        margin: 20px;
+        justify-content: center;
+    }
+
+    .menu_item {
+        text-align: center; /* 画像と文字を中央揃え */
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .menu_icon {
+        width: 150px;
+        height: auto;
+        margin-bottom: 10px; /* 画像と文字の間に隙間 */
+    }
+
+    .menu_text {
+        font-size: 18px;
+        color: white;
+        font-weight: bold;
+    }

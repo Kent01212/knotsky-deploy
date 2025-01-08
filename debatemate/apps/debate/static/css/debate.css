@@ -1,0 +1,482 @@
+/* ベースレイアウト */
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+/* サイドバー */
+.sidebar {
+    width: 400px;
+    height: 100vh;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e9ecef;
+}
+
+/* サイドバーヘッダー */
+.sidebar-header {
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* ハンバーガーメニュー */
+.hamburger-menu {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.hamburger-menu:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+}
+
+.sidebar-title {
+    font-size: 1.1rem;
+    color: #343a40;
+    margin: 0;
+}
+
+/* サイドバーコンテンツ */
+.sidebar-content {
+    padding-top: 30px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 80vh;
+}
+
+/* ユーザーリスト */
+.user-list {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+.user-item {
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.user-item:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(128, 128, 128, 0.1);
+}
+
+.user-item.active {
+    background-color: rgba(64, 224, 208, 0.1);
+}
+
+.user-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.user-item:hover .user-icon {
+    transform: scale(1.05);
+}
+
+/* ユーザーアバター設定 */
+.user-avatar, 
+.user-avatar-placeholder,
+.current-user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.user-info {
+    flex-grow: 1;
+}
+
+.user-name {
+    display: block;
+    font-size: 1rem;
+    color: #495057;
+    margin-bottom: 0.25rem;
+}
+
+/* コントロールパネル */
+.controls {
+    padding: 1.5rem;
+    border-top: 1px solid #e9ecef;
+    background-color: #fff;
+    box-shadow: 0 -2px 10px rgba(128, 128, 128, 0.05); 
+}
+
+.control-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.user-controls {
+    display: grid;
+    grid-template-columns: auto 1fr repeat(3, auto);
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+/* マイクボタンと音声認識関連 */
+.mic-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.mic-btn:hover {
+    background-color: #e9ecef;
+    transform: scale(1.05);
+}
+
+.mic-btn.recording {
+    background-color: #40E0D0;
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+.mic-btn.recording:hover {
+    background-color: #37c2b3;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(64, 224, 208, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(64, 224, 208, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(64, 224, 208, 0);
+    }
+}
+
+/* ボタンスタイル */
+.control-btn,
+.media-btn,
+.settings-btn,
+.sound-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.control-btn:hover,
+.media-btn:hover,
+.settings-btn:hover,
+.sound-btn:hover {
+    background-color: #e9ecef;
+    transform: scale(1.05);
+}
+
+/* メインチャットエリア */
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    height: 100vh;
+}
+
+/* メッセージ表示エリア */
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #f8f9fa;
+}
+
+/* メッセージスタイル */
+.message {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(128, 128, 128, 0.1); 
+    align-self: flex-start;
+    clear: both;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.message:hover {
+    transform: translateY(-2px);
+}
+
+.message-own {
+    align-self: flex-end;
+    background-color: rgba(64, 224, 208, 0.1);
+}
+
+/* メッセージ入力エリア */
+.message-input-area {
+    padding: 1rem;
+    background-color: #fff;
+    border-top: 1px solid #e9ecef;
+    box-shadow: 0 -2px 10px rgba(128, 128, 128, 0.05);
+}
+
+.message-form {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.message-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e9ecef;
+    border-radius: 24px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+.message-input:focus {
+    outline: none;
+    border-color: #40E0D0;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.1);
+}
+
+.message-input.voice-active {
+    border-color: #40E0D0;
+    box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.1);
+}
+
+.send-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #40E0D0;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.send-button:hover {
+    background-color: #37c2b3;
+    transform: translateY(-1px);
+}
+
+/* ツールチップ */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem;
+    background-color: rgba(128, 128, 128, 0.8);
+    color: white;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+[data-tooltip]:hover:before {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 300px;
+    }
+    
+    .user-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .user-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .message {
+        max-width: 85%;
+    }
+    
+    .message-input-area {
+        padding: 0.75rem;
+    }
+    
+    .send-button {
+        padding: 0.75rem 1rem;
+    }
+
+    .user-controls {
+        grid-template-columns: repeat(3, auto);
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .control-btn,
+    .sound-btn,
+    .settings-btn,
+    .mic-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.25rem;
+    }
+}
+
+/* ダークモードサポート */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #f8f9fa;
+    }
+
+    .sidebar,
+    .chat-area {
+        background-color: #2d3436;
+    }
+
+    .message {
+        background-color: #343a40;
+        color: #f8f9fa;
+    }
+
+    .message-own {
+        background-color: rgba(64, 224, 208, 0.2);
+    }
+
+    .message-input {
+        background-color: #343a40;
+        color: #f8f9fa;
+        border-color: #495057;
+    }
+
+    .message-input:focus {
+        border-color: #40E0D0;
+        background-color: #2d3436;
+    }
+
+    .mic-btn,
+    .control-btn,
+    .sound-btn,
+    .settings-btn {
+        background-color: #343a40;
+        color: #f8f9fa;
+    }
+
+    .mic-btn:hover,
+    .control-btn:hover,
+    .sound-btn:hover,
+    .settings-btn:hover {
+        background-color: #495057;
+    }
+
+    .user-controls {
+        background-color: #343a40;
+    }
+}
+
+/* アクセシビリティの改善 */
+.control-btn:focus,
+.sound-btn:focus,
+.settings-btn:focus,
+.mic-btn:focus,
+.message-input:focus,
+.send-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.25);
+}
+
+/* スクロールバーのカスタマイズ */
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: #40E0D0;
+    border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #37c2b3;
+}

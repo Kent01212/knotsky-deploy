@@ -1,0 +1,7 @@
+asyncpg
+django[argon2, asyncio]
+pillow
+requests
+faker
+pyjwt
+python-dotenv

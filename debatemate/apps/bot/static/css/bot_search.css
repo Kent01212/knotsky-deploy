@@ -1,0 +1,212 @@
+/*
+ * Reset styles.
+ */
+
+ *,
+ *::before,
+ *::after {
+ 
+     /* Margin */
+     margin: 0;
+ 
+     /* Padding */
+     padding: 0;
+ 
+     /* Box-sizing */
+     box-sizing: border-box;
+ 
+     /* Font */
+     font-family: "Noto Sans JP", sans-serif;
+ }
+ 
+ 
+ /*
+  * Base styles.
+  */
+ 
+ body,
+ main,
+ html {
+ 
+     /* Sizing */
+     width: 100%;
+ 
+     /* Display */
+     display: flex;
+     flex-direction: column;
+     justify-content: top;
+     align-items: center;
+ }
+ 
+ html {
+ 
+     /* Background-Image */
+     background-image: url("{% static 'images/background.webp' %}");
+ }
+ 
+ body {
+ 
+     /* Sizing */
+     width: 1024px;
+ 
+     /* Margin */
+     margin: 0 64px;
+ 
+     /* Display */
+     height: 100vh;
+ }
+ 
+ main {
+ 
+     /* Sizing */
+     width: 100%;
+     flex: 1;
+ }
+ 
+ body>header,
+ body>footer {
+ 
+     /* Display */
+     width: 100%;
+ 
+     /* Padding */
+     padding-top: 64px;
+     padding-bottom: 32px;
+ 
+     /* Text Layout */
+     text-align: center;
+ }
+ 
+ main,
+ body>header,
+ body>footer {
+ 
+     /* Color */
+     background-color: rgba(255, 255, 255, 0.8);
+ }
+ 
+ 
+ /*
+  * Bot-search-form container styles.
+  */
+ 
+ #bot-search-form-container {
+ 
+     /* Display */
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ 
+     /* Sizing */
+     width: 100%;
+ 
+     /* Padding */
+     padding: 16px 0;
+ }
+ 
+ #bot-search-form {
+ 
+     /* Display */
+     display: flex;
+     flex-direction: row;
+     gap: 8px;
+ 
+     /* Sizing */
+     width: 100%;
+ }
+ 
+ #bot-search-form input {
+ 
+     /* Sizing */
+     width: 100%;
+     height: 100%;
+ 
+     /* Padding */
+     padding: 8px;
+ 
+     /* Border */
+     border: 1px solid #ccc;
+     border-radius: 5px;
+ }
+ 
+ #bot-search-form button {
+ 
+     /* Sizing */
+     width: 64px;
+     height: 100%;
+ 
+     /* Padding */
+     padding: 8px;
+ 
+     /* Border */
+     border: 1px solid #ccc;
+     border-radius: 5px;
+ 
+     /* Fonts */
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 16px;
+ }
+ 
+ 
+ /*
+  * Bot-card container styles.
+  */
+ 
+ #bot-search-card-container {
+ 
+     /* Display */
+     display: grid;
+     grid-template-columns: repeat(auto-fill, 250px);
+     gap: 8px;
+ 
+     /* Sizing */
+     width: 100%;
+ 
+     /* Padding */
+     padding: 32px 0;
+ 
+     /* Color */
+     background-color: rgba(255, 255, 255, 0.8);
+ }
+ 
+ #bot-search-card-container .bot-card {
+ 
+     /* Display */
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ 
+     /* Sizing */
+     width: 100%;
+     height: 100px;
+ 
+     /* Padding */
+     padding: 16px;
+ 
+     /* Border */
+     border: 1px solid #ccc;
+     border-radius: 5px;
+ 
+     /* Color */
+     transition: background-color 1.0s ease;
+     background-color: #FFF;
+ }
+ 
+ #bot-search-card-container .bot-card:hover {
+ 
+     /* Color */
+     background-color: #AFF;
+ }
+ 
+ #bot-search-card-container a {
+ 
+     /* Display */
+     text-decoration: none;
+ 
+     /* Color */
+     color: #000;
+     font-weight: bold;
+ }
+ 

@@ -1,0 +1,240 @@
+*,
+*::before,
+*::after {
+    /* Margin */
+    margin: 0;
+    /* Padding */
+    padding: 0;
+    /* Box-sizing */
+    box-sizing: border-box;
+    /* Font */
+    font-family: "Noto Sans JP", sans-serif;
+}
+body,
+main,
+html {
+    /* Sizing */
+    width: 100%;
+    height: 100vh;
+    /* Display */
+    display: flex;
+    align-items: center;
+}
+main,
+html {
+    /* Display */
+    flex-direction: column;
+}
+body {
+    /* Display */
+    flex-direction: row;
+}
+#chat-nav {
+    /* Display */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    /* Sizing */
+    width: 300px;
+    height: 100vh;
+    /* Padding */
+    padding: 20px;
+    /* Background-color */
+    background-color: #bbb;
+}
+#chat-nav .chat-nav-selector,
+#chat-nav .chat-nav-selected {
+    /* Display */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    /* Sizing */
+    width: 300px;
+    height: auto;
+    /* Padding */
+    padding: 16px;
+    /* Border */
+    border: 1px solid #bbb;
+    border-radius: 30px;
+}
+#chat-nav .chat-nav-selector {
+    /* Background-color */
+    background-color: #bbb;
+    /* Transition */
+    transition: background-color 0.5s ease;
+}
+#chat-nav .chat-nav-selector:hover {
+    /* Border */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Background-color */
+    background-color: #40E0D0;
+}
+#chat-nav .chat-nav-selected {
+    /* Background-color */
+    background-color: #40E0D0;
+}
+#chat-nav a {
+    /* Text */
+    text-decoration: none;
+    text-align: left;
+    /* Color */
+    color: #000;
+    /* Margin */
+    margin: 1px 8px;
+}
+#chat-card-container {
+    /* Display */
+    /* メッセージリストをスクロール可能にする */
+    overflow-y: auto;
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    gap: 20px;
+    /* Sizing */
+    width: calc(100% - 300px); /* ナビゲーション幅を引いた値 */
+    flex: 1;
+    /* Padding */
+    padding: 32px;
+    /* Font */
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 14px;
+}
+#chat-card-container .chat-card {
+    /* Display */
+    display: flex;
+    flex-direction: column;
+    /* Padding */
+    padding: 8px;
+    /* Border */
+    border: 1px solid #ccc;
+    /* Color */
+    background-color: #bbb;
+}
+#chat-card-container .chat-card .content {
+    /* Display */
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    /* Sizing */
+    width: 100%;
+    /* Color */
+    background-color: #bbb;
+}
+#chat-card-container .chat-card .author {
+    /* Display */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    /* Sizing */
+    width: 100%;
+    height: 32px;
+    /* Text */
+    text-align: left;
+    /* Color */
+    color: #000;
+    /* Margin */
+    margin: 1px 8px;
+    /* Font */
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 16px;
+}
+
+#chat-form-container {
+    /* Display */
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    /* Sizing */
+    width: 100%;
+    /* Padding */
+    padding: 1.5rem;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+}
+
+#image-preview img.preview-image {
+    /* Sizing */
+    width: 50x;
+    height: 50px;
+    /* Object-fit */
+    object-fit: cover;
+    /* Border */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#chat-form {
+    /* Display */
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    /* Sizing */
+    width: 100%;
+}
+
+#chat-media {
+    /* Display */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Sizing */
+    width: 120px; /* ボタンの横幅を調整 */
+    height: 100%;
+    /* Padding */
+    padding: 8px;
+    /* Background */
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Cursor */
+    cursor: pointer;
+    text-align: center;
+}
+
+#chat-media input[type="file"] {
+    /* Hide the file input element */
+    display: none;
+}
+
+#chat-form input{
+    /* Sizing */
+    flex: 1;
+    height: 100%;
+    /* Padding */
+    padding: 8px;
+    /* Border */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Fonts */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+#chat-form button {
+    /* Sizing */
+    width: 80px; /* 送信ボタンの幅を調整 */
+    height: 100%;
+    /* Padding */
+    padding: 8px;
+    /* Border */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Fonts */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    background-color: #40E0D0; /* 送信ボタンの色 */
+    color: black;
+    cursor: pointer;
+}
+
+#chat-form button:hover {
+    background-color: #40E0D0; /* ボタンのホバー時の色 */
+}

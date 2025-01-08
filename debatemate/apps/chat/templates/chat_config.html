@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ chat.name }} - 編集</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/chat_config.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>{{ chat.name }} - 編集</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.name.label_tag }}
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                {{ form.description.label_tag }}
+                {{ form.description }}
+            </div>
+            <div class="form-group">
+                <button type="submit">保存</button>
+                <a href="{% url 'chat_search' %}" class="cancel-button">キャンセル</a>
+            </div>
+        </form>
+        <form method="post" action="{% url 'chat_delete' chat.id %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="delete-button">削除</button>
+        </form>
+    </div>
+</body>
+</html>

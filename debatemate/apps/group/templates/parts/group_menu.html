@@ -1,0 +1,50 @@
+<nav id="group-menu">
+    <a href="{% url 'group.(id)' group.id %}">
+        <div class="
+            {% if request.resolver_match.view_name == 'group.(id)' %}
+            group-menu-selected
+            {% else %}
+            group-menu-selector
+            {% endif %}
+        ">
+            <span class="material-icons">group</span>
+            <h5>グループ</h5>
+        </div>
+    </a>
+    <a href="{% url 'group.(id).bot' group.id %}">
+        <div class="
+            {% if request.resolver_match.view_name == 'group.(id).bot' %}
+            group-menu-selected
+            {% else %}
+            group-menu-selector
+            {% endif %}
+        ">
+            <span class="material-icons">android</span>
+            <h5>グループボット</h5>
+        </div>
+    </a>
+    <a href="{% url 'group.(id).user' group.id %}">
+        <div class="
+            {% if request.resolver_match.view_name == 'group.(id).user' %}
+            group-menu-selected
+            {% else %}
+            group-menu-selector
+            {% endif %}
+        ">
+            <span class="material-icons">account_circle</span>
+            <h5>グループユーザー</h5>
+        </div>
+    </a>
+    <a href="{% url 'debate' %}">
+        <div class="
+            {% if request.resolver_match.view_name == 'debate' %}
+            group-menu-selected
+            {% else %}
+            group-menu-selector
+            {% endif %}
+        ">
+            <span class="material-icons">forum</span>
+            <h5>議論</h5>
+        </div>
+    </a>
+</nav>
