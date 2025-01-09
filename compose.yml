@@ -1,0 +1,79 @@
+#version: '3.8'
+
+services:
+  django:
+    build: .                                  # カレントディレクトリのDockerfileを使ってDjangoのイメージをビルド
+    container_name: knotsky_django_containers # Djangoコンテナの名前
+    #image: knotsky-django-app:latest         # ビルド時に作成されるイメージ名
+    ports:
+      - "8000:8000"                          # ホストの8000ポートをコンテナの8000ポートにマッピング
+    volumes:
+      - ./:/code                             # ローカルのプロジェクトディレク���リをコンテナにマウント
+    # Djangoで管理画面にアクセスするためのコマンド
+    # 初回のみ以下を実行し、管理者アカウントとマイグレーションを作成。
+    # コメントアウトされている理由: 再実行時にエラーになるため、最初だけ有効にする。
+    #command: >
+    #   sh -c "
+    #   python manage.py makemigrations &&
+    #   python manage.py migrate &&
+    #   python manage.py createsuperuser --no-input --username admin --email admin@example.com &&
+    #   python manage.py runserver 0.0.0.0:8000
+    #   "
+
+    command: >
+      sh -c "
+      python manage.py runserver 0.0.0.0:8000
+      "
+
+    environment:
+      DJANGO_SUPERUSER_USERNAME: admin           # 管理者ユーザー名（環境変数で指定）
+      DJANGO_SUPERUSER_EMAIL: admin@example.com  # 管理者メールアドレス
+      DJANGO_SUPERUSER_PASSWORD: admin-pass      # 管理者パスワード
+
+  minio:
+    image: minio/minio:latest                    # MinIOのイメージを指定
+    container_name: knotsky_minio_containers     # MinIOコンテナの名前
+    environment:
+      MINIO_ROOT_USER: knotsky_minio_admin       # MinIOの管理者ユーザー名
+      MINIO_ROOT_PASSWORD: knotsky_minio_admin   # MinIOの管理者パスワード
+    ports:
+      - 9000:9000  # MinIOのデフォルトWebアクセスポート
+      - 9001:9001  # MinIOのコンソール（管理画面）ポート
+    volumes:
+      - ./.minio-storage/:/storage               # ストレージデータを永続化するためのボリューム
+    command: ['server', '/storage', '--console-address', ':9001']  # MinIOサーバーの起動コマンド
+
+    # MinIOのCLIクライアント（mc）を使用してバケットを作成するサービス
+    # 初回の設定用に使用します。複数回実行するとエラーになるため、通常は一時的に有効化して利用。
+    # mc:
+    #   image: minio/mc:latest  # MinIOのCLIクライアントイメージ
+    #   depends_on:
+    #     - minio               # MinIOサービスが起動してから実行
+    #   environment:
+    #     MINIO_ROOT_USER: "knotsky_minio_admin"       # MinIO管理者ユーザー
+    #     MINIO_ROOT_PASSWORD: "knotsky_minio_admin"   # MinIO管理者パスワード
+    #   entrypoint: >
+    #     /bin/sh -c "
+    #     mc alias set myminio http://minio:9000 knotsky_minio_admin knotsky_minio_admin;  # MinIOエイリアス設定
+    #     mc mb myminio/local-minio;                   # バケットの作成
+    #     mc anonymous set public myminio/local-minio; # 作成したバケットをパブリックに設定
+    #     "
+
+  # どういうFastAPIか分からぬ、とりまとりあえず思い込み入っているイメージ作成
+  django-fastapi:
+    build:
+      context: .
+    container_name: knotsky_fastapi_containers
+    ports:
+      - "8001:8001"  # FastAPI ポート
+    volumes:
+      - .:/code
+    depends_on:
+      - minio  # MinIO を使用している場合の依存関係
+    environment:
+      DJANGO_SUPERUSER_USERNAME: admin
+      DJANGO_SUPERUSER_EMAIL: admin@example.com
+      DJANGO_SUPERUSER_PASSWORD: admin-pass
+
+volumes:
+  minio-data:   # MinIOの永続化データ用ボリューム
